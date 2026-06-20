@@ -31,7 +31,7 @@ function App() {
       <section>
         <h2>Adicionar comentário</h2>
 
-        <label htmlFor="comentario"></label>
+        <label htmlFor="comentario">Comentário</label>
 
         <textarea 
           id="comentario" 
