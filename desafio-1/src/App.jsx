@@ -31,7 +31,7 @@ function App() {
       <section>
         <h2>Adicionar comentário</h2>
 
-        <label htmlFor="comentario">Comentário</label>
+        <label htmlFor="comentario"></label>
 
         <textarea 
           id="comentario" 
@@ -47,6 +47,11 @@ function App() {
 
       <section>
         <h2>Comentários adicionados</h2>
+        <ul>
+          {listaComentarios.map((comentario, index) => 
+            <li key={index}>{comentario}</li>
+          )}
+        </ul>
       </section>
     </main>
   )   
