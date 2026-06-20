@@ -1,27 +1,27 @@
 import { useState } from "react"
-/* O useState cria uma memoria dentro do componente
-  Essa memória serve para guardar um valor que pode mudar com o tempo.
-*/
 
 function App() {
 
   const [textoComentario, setTextoComentario] = useState("");
   const [listaComentarios, setListaComentarios] = useState([]);
+  const [mensagemErro, setMensagemErro] = useState("");
 
-  /**
-      Quando adicionarComentario for chamada:
-        crie uma nova lista com tudo que já existia em listaComentarios
-        adicione textoComentario no final
-        salve essa nova lista em listaComentarios
-        limpe textoComentario
-   */
   function adicionarComentario(){
+
+    const textoLimpo = textoComentario.trim();
+
+    if (textoLimpo === "") {
+        setMensagemErro("Por favor, digite um comentário.");
+        return;
+    }
     const novaListaComentarios = [
-      ...listaComentarios, 
-      textoComentario 
+      ...listaComentarios,
+      textoLimpo
     ];
+
     setListaComentarios(novaListaComentarios);
     setTextoComentario("");
+    setMensagemErro("");
   }
 
   return (
@@ -33,9 +33,14 @@ function App() {
 
         <label htmlFor="comentario">Comentário</label>
 
-        <textarea id="comentario" 
-          value={textoComentario}
-          onChange={(e) => setTextoComentario(e.target.value)}></textarea>
+        <textarea 
+          id="comentario" 
+          value={textoComentario} 
+          onChange={(e) => setTextoComentario(e.target.value)} 
+          aria-describedby={Boolean(mensagemErro) ? "comentario-erro" : undefined} 
+          aria-invalid={Boolean(mensagemErro)}></textarea>
+
+        {mensagemErro && <p id="comentario-erro">{mensagemErro}</p>}
 
         <button onClick={adicionarComentario}>Adicionar comentário</button> 
       </section>
@@ -44,7 +49,7 @@ function App() {
         <h2>Comentários adicionados</h2>
       </section>
     </main>
-  )       
+  )   
 }
 
 export default App
