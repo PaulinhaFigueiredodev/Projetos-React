@@ -8,5 +8,5 @@ A ideia é manter os desafios bem organizados, facilitando o acompanhamento da e
 
 ## Desafios
 
-* [Desafio 1: Tela de Comentários](./desafio-1-tela-de-comentarios/README.md)
+* [Desafio 1: Tela de Comentários](./desafio-1/README.md)
 
