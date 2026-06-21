@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "./App.css"
 
 function App() {
 
@@ -6,13 +7,13 @@ function App() {
   const [listaComentarios, setListaComentarios] = useState([]);
   const [mensagemErro, setMensagemErro] = useState("");
 
-  function adicionarComentario(){
+  function adicionarComentario() {
 
     const textoLimpo = textoComentario.trim();
 
     if (textoLimpo === "") {
-        setMensagemErro("Por favor, digite um comentário.");
-        return;
+      setMensagemErro("Por favor, digite um comentário.");
+      return;
     }
     const novaListaComentarios = [
       ...listaComentarios,
@@ -25,36 +26,53 @@ function App() {
   }
 
   return (
-    <main>
-      <h1>Comentários</h1>
+    <main className="comments-page">
+      <h1 className="comments-page__title">Comentários</h1>
+      <p className="comment-form__subtitle">Adicione aqui seu comentário</p>
 
-      <section>
-        <h2>Adicionar comentário</h2>
 
-        <label htmlFor="comentario">Comentário</label>
+      <section className="comment-form">
 
-        <textarea 
-          id="comentario" 
-          value={textoComentario} 
-          onChange={(e) => setTextoComentario(e.target.value)} 
-          aria-describedby={Boolean(mensagemErro) ? "comentario-erro" : undefined} 
-          aria-invalid={Boolean(mensagemErro)}></textarea>
+        <label className="comment-form__label" htmlFor="comentario">Comentário:</label>
 
-        {mensagemErro && <p id="comentario-erro">{mensagemErro}</p>}
+        <textarea
+          id="comentario"
+          placeholder="Digite seu comentário..."
+          className={
+            mensagemErro
+              ? "comment-form__textarea comment-form__textarea--error"
+              : "comment-form__textarea"
+          }
+          value={textoComentario}
+          onChange={(e) => setTextoComentario(e.target.value)}
+          aria-describedby={Boolean(mensagemErro) ? "comment-error" : undefined}
+          aria-invalid={Boolean(mensagemErro)}
+        ></textarea>
 
-        <button onClick={adicionarComentario}>Adicionar comentário</button> 
+        {mensagemErro && (
+          <p id="comment-error" className="comment-form__error">
+            {mensagemErro}
+          </p>
+        )}
+
+        <button
+          type="button"
+          className="comment-form__button"
+          onClick={adicionarComentario}>
+          Comentar
+        </button>
       </section>
 
-      <section>
-        <h2>Comentários adicionados</h2>
-        <ul>
-          {listaComentarios.map((comentario, index) => 
-            <li key={index}>{comentario}</li>
+      <section className="comments-list">
+        <h3 className="comments-list__title">Comentários adicionados</h3>
+        <ul className="comments-list__items">
+          {listaComentarios.map((comentario, index) =>
+            <li className="comments-list__item" key={index}>{comentario}</li>
           )}
         </ul>
       </section>
     </main>
-  )   
+  )
 }
 
 export default App
