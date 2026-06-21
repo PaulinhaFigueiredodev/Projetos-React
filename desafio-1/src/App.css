@@ -30,19 +30,20 @@
     padding-bottom: 28px;
     border-bottom: 1px solid #f3d7e5;
   }
-  
-  .comment-form__subtitle {
+
+  .comment-form__title {
     margin: 8px 0 28px;
-    padding-bottom: 24px;
+    padding-bottom: 22px;
     border-bottom: 1px solid #f4a6cc;
     font-size: 18px;
+    font-weight: 500;
     color: #797476;
   }
   
   .comment-form__label {
     display: block;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 18px;
     color: #1f1f1f;
   }
   

@@ -28,10 +28,9 @@ function App() {
   return (
     <main className="comments-page">
       <h1 className="comments-page__title">Comentários</h1>
-      <p className="comment-form__subtitle">Adicione aqui seu comentário</p>
-
 
       <section className="comment-form">
+        <h2 className="comment-form__title">Adicione aqui seu comentário</h2>
 
         <label className="comment-form__label" htmlFor="comentario">Comentário:</label>
 
@@ -59,12 +58,12 @@ function App() {
           type="button"
           className="comment-form__button"
           onClick={adicionarComentario}>
-          Comentar
+          Adicionar comentário
         </button>
       </section>
 
       <section className="comments-list">
-        <h3 className="comments-list__title">Comentários adicionados</h3>
+        <h2 className="comments-list__title">Comentários adicionados</h2>
         <ul className="comments-list__items">
           {listaComentarios.map((comentario, index) =>
             <li className="comments-list__item" key={index}>{comentario}</li>
