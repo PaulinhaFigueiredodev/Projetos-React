@@ -1,16 +1,75 @@
-# React + Vite
+# Desafio — Tela de Comentários
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido com React e Vite para praticar componentes, estado, eventos, validação simples, renderização de lista, CSS e acessibilidade.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Campo para digitar um comentário.
+- Botão para adicionar comentário.
+- Validação para impedir comentário vazio.
+- Exibição dos comentários adicionados em lista.
+- Mensagem de erro clara.
+- Estilização com CSS e padrão BEM.
 
-## React Compiler
+## Tecnologias usadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- JavaScript
+- HTML
+- CSS
 
-## Expanding the ESLint configuration
+## Estrutura de pastas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+desafio-1/
+├── public/
+├── src/
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+## Estrutura do projeto
+
+- `main.jsx`: entrada da aplicação React.
+- `App.jsx`: componente principal da tela de comentários.
+- `App.css`: estilos da tela usando padrão BEM.
+- `index.css`: estilos globais da aplicação.
+- `index.html`: arquivo HTML principal usado pelo Vite.
+
+## Como rodar o projeto
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Depois, abra no navegador o endereço mostrado no terminal.
+
+## Acessibilidade
+
+O projeto inclui algumas boas práticas de acessibilidade:
+
+- Uso de `label` associado ao `textarea`.
+- Botão com texto claro.
+- Mensagem de erro compreensível.
+- Uso de `aria-invalid` no campo quando existe erro.
+- Uso de `aria-describedby` para ligar o erro ao campo.
+- Estrutura semântica com `main`, `section`, `h1` e `h2`.
+- Foco visível no campo de texto e no botão.
+- Documento com idioma definido como `pt-BR`.
+
+O projeto também foi testado com VoiceOver.
