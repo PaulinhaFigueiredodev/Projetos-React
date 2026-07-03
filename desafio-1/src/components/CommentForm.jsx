@@ -1,3 +1,5 @@
+import TextAreaField from "./TextAreaField"
+
 function CommentForm({ textoComentario, setTextoComentario, mensagemErro, adicionarComentario }) {
 
     return (
@@ -6,19 +8,11 @@ function CommentForm({ textoComentario, setTextoComentario, mensagemErro, adicio
 
             <label className="comment-form__label" htmlFor="comentario">Comentário:</label>
 
-            <textarea
-                id="comentario"
-                placeholder="Digite seu comentário..."
-                className={
-                    mensagemErro
-                        ? "comment-form__textarea comment-form__textarea--error"
-                        : "comment-form__textarea"
-                }
-                value={textoComentario}
-                onChange={(e) => setTextoComentario(e.target.value)}
-                aria-describedby={Boolean(mensagemErro) ? "comment-error" : undefined}
-                aria-invalid={Boolean(mensagemErro)}
-            ></textarea>
+            <TextAreaField
+                textoComentario={textoComentario}
+                setTextoComentario={setTextoComentario}
+                mensagemErro={mensagemErro}
+            />
 
             {mensagemErro && (
                 <p id="comment-error" className="comment-form__error">
