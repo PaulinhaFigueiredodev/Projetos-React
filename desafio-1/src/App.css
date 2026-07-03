@@ -8,14 +8,14 @@
   padding: 36px;
   background-color: #ffffff;
   border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(220, 80, 150, 0.15);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
 .comments-page__title {
   margin: 0;
   font-size: 36px;
   text-align: left;
-  color: #1f1f1f;
+  color: #111827;
 }
 
 /* =========================
@@ -23,23 +23,23 @@
   ========================= */
 
 .comment-form {
-  padding-bottom: 28px;
-  border-bottom: 1px solid #f3d7e5;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #E5E7EB;
 }
 
 .comment-form__title {
   margin: 8px 0 28px;
   padding-bottom: 22px;
-  border-bottom: 1px solid #f4a6cc;
+  border-bottom: 1px solid #E5E7EB;
   font-size: 18px;
   font-weight: 500;
-  color: #797476;
+  color: #6B7280;
 }
 
 .comment-form__label {
   font-weight: 700;
   font-size: 18px;
-  color: #1f1f1f;
+  color: #374151;
 }
 
 .comment-form__textarea {
@@ -50,7 +50,7 @@
   font-family: inherit;
   font-size: 18px;
   line-height: 1.5;
-  color: #3b2f35;
+  color:  #111827;
   background-color: #ffffff;
   border: 1px solid #d8d8e0;
   border-radius: 12px;
@@ -72,9 +72,10 @@
   font-size: 18px;
   font-weight: 700;
   color: #ffffff;
-  background-color: #d85b9f;
+  background-color: #2563EB;
   border: none;
   border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.16);
   cursor: pointer;
 }
 
@@ -83,8 +84,13 @@
   ========================= */
 
 .comment-form__textarea:focus {
-  outline: 1px solid #f4a6cc;
-  border-color: #d85b9f;
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  outline: none;
+}
+
+.comment-form__textarea:hover {
+  border-color: #6B7280;
 }
 
 .comment-form__textarea--error {
@@ -92,11 +98,12 @@
 }
 
 .comment-form__button:hover {
-  background-color: #c94b8f;
+  background-color: #1D4ED8;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.22);
 }
 
 .comment-form__button:focus {
-  outline: 2px solid #f4a6cc;
+  outline: 2px solid #648fea;
 }
 
 /* =========================
@@ -104,13 +111,13 @@
   ========================= */
 
 .comments-list {
-  margin-top: 32px;
+  margin-top: 20px;
 }
 
 .comments-list__title {
   margin: 0 0 20px;
   font-size: 26px;
-  color: #1f1f1f;
+  color: #111827;
 }
 
 .comments-list__items {
@@ -122,9 +129,9 @@
   margin-bottom: 10px;
   padding: 24px;
   background-color: #ffffff;
-  border: 1px solid #f3bfd8;
+  border: 1px solid #d8d8e0;
   border-radius: 8px;
   font-size: 18px;
   line-height: 1.5;
-  color: #1f1f1f;
+  color: #111827;
 }
