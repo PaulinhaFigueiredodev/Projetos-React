@@ -24,16 +24,16 @@
 
 .comment-form {
   padding-bottom: 18px;
-  border-bottom: 1px solid #E5E7EB;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .comment-form__title {
   margin: 8px 0 28px;
   padding-bottom: 22px;
-  border-bottom: 1px solid #E5E7EB;
+  border-bottom: 1px solid #e5e7eb;
   font-size: 18px;
   font-weight: 500;
-  color: #6B7280;
+  color: #6b7280;
 }
 
 .comment-form__label {
@@ -50,9 +50,9 @@
   font-family: inherit;
   font-size: 18px;
   line-height: 1.5;
-  color:  #111827;
+  color: #111827;
   background-color: #ffffff;
-  border: 1px solid #d8d8e0;
+  border: 1px solid #8a94a6;
   border-radius: 12px;
   resize: vertical;
 }
@@ -72,7 +72,7 @@
   font-size: 18px;
   font-weight: 700;
   color: #ffffff;
-  background-color: #2563EB;
+  background-color: #2563eb;
   border: none;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(37, 99, 235, 0.16);
@@ -83,27 +83,28 @@
      3. Estados do comment-form
   ========================= */
 
-.comment-form__textarea:focus {
-  border-color: #2563EB;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-  outline: none;
-}
-
-.comment-form__textarea:hover {
-  border-color: #6B7280;
-}
-
 .comment-form__textarea--error {
   border-color: #b4235a;
 }
 
-.comment-form__button:hover {
-  background-color: #1D4ED8;
-  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.22);
+.comment-form__textarea--error:hover:not(:focus) {
+  border-color: #9f1239;
+}
+
+.comment-form__textarea--error:focus {
+  border-color: #b4235a;
+  box-shadow: 0 0 0 3px rgba(180, 35, 90, 0.14);
+  outline: none;
 }
 
 .comment-form__button:focus {
   outline: 2px solid #648fea;
+  outline-offset: 2px;
+}
+
+.comment-form__button:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.22);
 }
 
 /* =========================
@@ -127,11 +128,38 @@
 
 .comments-list__item {
   margin-bottom: 10px;
-  padding: 24px;
+  padding: 14px 16px;
   background-color: #ffffff;
   border: 1px solid #d8d8e0;
   border-radius: 8px;
   font-size: 18px;
   line-height: 1.5;
   color: #111827;
+}
+
+.comments-list__remove-button {
+  margin-top: 16px;
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #b42318;
+  background-color: #ffffff;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================
+     5. Estados do comment-list
+  ========================= */
+
+.comments-list__remove-button:focus {
+  outline: 2px solid #b42318;
+  outline-offset: 2px;
+}
+
+.comments-list__remove-button:hover {
+  background-color: #fef2f2;
+  border-color: #f87171;
 }

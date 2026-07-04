@@ -27,6 +27,14 @@ function App() {
     setMensagemErro("");
   }
 
+  function removerComentario(indiceParaRemover) {
+    const novaListaComentarios = listaComentarios.filter((_, indiceAtual) => {
+      return indiceAtual !== indiceParaRemover;
+    });
+  
+    setListaComentarios(novaListaComentarios);
+  }
+
   return (
     <main className="comments-page">
       <h1 className="comments-page__title">Comentários</h1>
@@ -38,6 +46,7 @@ function App() {
       />
       <CommentsList
         listaComentarios={listaComentarios}
+        removerComentario={removerComentario}
       />
     </main>
   )

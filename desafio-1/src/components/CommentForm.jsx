@@ -21,7 +21,6 @@ function CommentForm({ textoComentario, setTextoComentario, mensagemErro, adicio
             )}
 
             <button
-                type="button"
                 className="comment-form__button"
                 onClick={adicionarComentario}>
                 Adicionar comentário
