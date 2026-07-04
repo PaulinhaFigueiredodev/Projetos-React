@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 8080",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "start": "vite preview --port 8090"
   },
   "dependencies": {
     "react": "^19.2.6",

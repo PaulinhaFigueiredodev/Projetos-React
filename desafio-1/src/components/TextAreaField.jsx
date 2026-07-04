@@ -17,4 +17,4 @@ function TextAreaField({ textoComentario, setTextoComentario, mensagemErro }) {
     )
 }
 
-export default TextAreaField
+export default TextAreaField;
