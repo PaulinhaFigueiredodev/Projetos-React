@@ -6,7 +6,7 @@ O objetivo é praticar front-end moderno por meio de pequenos projetos evolutivo
 
 ## Projetos
 
-### Desafio 1 — Tela de comentários
+### Funcionalidades
 
 Aplicação criada com React e Vite.
 
