@@ -1,8 +1,8 @@
 /* =========================
-   1. Bloco: comments-page
+   1. Bloco: comments-view
 ========================= */
 
-.comments-page {
+.comments-view {
   max-width: 700px;
   margin: 40px auto;
   padding: 36px;
@@ -11,7 +11,7 @@
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
-.comments-page__title {
+.comments-view__title {
   margin: 0;
   font-size: 36px;
   text-align: left;
@@ -19,8 +19,8 @@
 }
 
 /* =========================
-     2. Bloco: comment-form
-  ========================= */
+   2. Bloco: comment-form
+========================= */
 
 .comment-form {
   padding-bottom: 18px;
@@ -34,33 +34,6 @@
   font-size: 18px;
   font-weight: 500;
   color: #6b7280;
-}
-
-.comment-form__label {
-  font-weight: 700;
-  font-size: 18px;
-  color: #374151;
-}
-
-.comment-form__textarea {
-  width: 100%;
-  min-height: 120px;
-  padding: 16px;
-  margin-top: 20px;
-  font-family: inherit;
-  font-size: 18px;
-  line-height: 1.5;
-  color: #111827;
-  background-color: #ffffff;
-  border: 1px solid #8a94a6;
-  border-radius: 12px;
-  resize: vertical;
-}
-
-.comment-form__error {
-  margin: 0;
-  font-size: 16px;
-  color: #b4235a;
 }
 
 .comment-form__button {
@@ -79,24 +52,6 @@
   cursor: pointer;
 }
 
-/* =========================
-     3. Estados do comment-form
-  ========================= */
-
-.comment-form__textarea--error {
-  border-color: #b4235a;
-}
-
-.comment-form__textarea--error:hover:not(:focus) {
-  border-color: #9f1239;
-}
-
-.comment-form__textarea--error:focus {
-  border-color: #b4235a;
-  box-shadow: 0 0 0 3px rgba(180, 35, 90, 0.14);
-  outline: none;
-}
-
 .comment-form__button:focus {
   outline: 2px solid #648fea;
   outline-offset: 2px;
@@ -108,8 +63,63 @@
 }
 
 /* =========================
-     4. Bloco: comments-list
-  ========================= */
+   3. Bloco: textarea-field
+========================= */
+
+.textarea-field__label {
+  font-weight: 700;
+  font-size: 18px;
+  color: #374151;
+}
+
+.textarea-field__control {
+  width: 100%;
+  min-height: 120px;
+  padding: 16px;
+  margin-top: 20px;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #111827;
+  background-color: #ffffff;
+  border: 1px solid #8a94a6;
+  border-radius: 12px;
+  resize: vertical;
+}
+
+.textarea-field__error {
+  margin: 0;
+  font-size: 16px;
+  color: #b4235a;
+}
+
+/* =========================
+   4. Estados do textarea-field
+========================= */
+
+.textarea-field__control:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  outline: none;
+}
+
+.textarea-field__control--error {
+  border-color: #b4235a;
+}
+
+.textarea-field__control--error:hover:not(:focus) {
+  border-color: #9f1239;
+}
+
+.textarea-field__control--error:focus {
+  border-color: #b4235a;
+  box-shadow: 0 0 0 3px rgba(180, 35, 90, 0.14);
+  outline: none;
+}
+
+/* =========================
+   5. Bloco: comments-list
+========================= */
 
 .comments-list {
   margin-top: 20px;
@@ -151,8 +161,8 @@
 }
 
 /* =========================
-     5. Estados do comment-list
-  ========================= */
+   6. Estados do comments-list
+========================= */
 
 .comments-list__remove-button:focus {
   outline: 2px solid #b42318;
