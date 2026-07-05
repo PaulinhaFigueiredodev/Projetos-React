@@ -3,8 +3,8 @@ import { Link } from 'react-router'
 function Header() {
 
     return (
-        <header className="header-component">
-            <nav className="header__nav" aria-label="Navegação principal">
+        <header className="header">
+            <nav className="header__nav">
                 <Link to="/"> Comentários </Link>
                 <Link to="/imagens"> Imagens </Link>
             </nav>
