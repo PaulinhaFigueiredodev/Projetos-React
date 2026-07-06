@@ -4,37 +4,37 @@ import CommentsList from "../components/organisms/CommentsList";
 
 function CommentsView() {
 
-    const [listaComentarios, setListaComentarios] = useState([]);
+	const [listaComentarios, setListaComentarios] = useState([]);
 
-    function adicionarComentario(comentarioValido) {
-        const novaListaComentarios = [
-            ...listaComentarios,
-            comentarioValido
-        ];
+	function adicionarComentario(comentarioValido) {
+		const novaListaComentarios = [
+			...listaComentarios,
+			comentarioValido
+		];
 
-        setListaComentarios(novaListaComentarios);
-    }
+		setListaComentarios(novaListaComentarios);
+	}
 
-    function removerComentario(indiceParaRemover) {
-        const novaListaComentarios = listaComentarios.filter((_, indiceAtual) => {
-            return indiceAtual !== indiceParaRemover;
-        });
+	function removerComentario(indiceParaRemover) {
+		const novaListaComentarios = listaComentarios.filter((_, indiceAtual) => {
+			return indiceAtual !== indiceParaRemover;
+		});
 
-        setListaComentarios(novaListaComentarios);
-    }
+		setListaComentarios(novaListaComentarios);
+	}
 
-    return (
-        <main className="comments-view">
-            <h1 className="comments-view__title">Comentários</h1>
+	return (
+		<main className="comments-view">
+			<h1 className="comments-view__title">Comentários</h1>
 
-            <CommentForm adicionarComentario={adicionarComentario} />
+			<CommentForm adicionarComentario={adicionarComentario} />
 
-            <CommentsList
-                listaComentarios={listaComentarios}
-                removerComentario={removerComentario}
-            />
-        </main>
-    )
+			<CommentsList
+				listaComentarios={listaComentarios}
+				removerComentario={removerComentario}
+			/>
+		</main>
+	)
 }
 
 export default CommentsView;
