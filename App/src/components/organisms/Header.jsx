@@ -8,11 +8,11 @@ function Header() {
 				<NavLink to="/" className={({ isActive }) => 
 					isActive ? "header__link header__link--active" : "header__link"
 				}
-					end> Comentários </NavLink>
-				<NavLink to="/imagens" className={({ isActive }) => 
+					end> Imagens </NavLink>
+				<NavLink to="/comentarios" className={({ isActive }) => 
 					isActive ? "header__link header__link--active" : "header__link"
 				}
-				> Imagens </NavLink>
+				> Comentários </NavLink>
 			</nav>
 		</header>
 	)
