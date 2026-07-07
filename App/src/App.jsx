@@ -9,8 +9,8 @@ function App() {
 		<>
 			<Header />
 			<Routes>
-				<Route path="/" element={<CommentsView />} />
-				<Route path="/imagens" element={<ImagesView />} />
+				<Route path="/" element={<ImagesView />} />
+				<Route path="/comentarios" element={<CommentsView />} />
 			</Routes>
 		</>
 	);

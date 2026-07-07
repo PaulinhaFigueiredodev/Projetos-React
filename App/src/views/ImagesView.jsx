@@ -1,6 +1,6 @@
-import afonsoPacifer1 from "../assets/images/afonso-pacifer-1.png";
-import afonsoPacifer2 from "../assets/images/afonso-pacifer-2.png";
-import afonsoPacifer3 from "../assets/images/afonso-pacifer-3.png";
+import afonsoPacifer1 from "../assets/images/width-1000/afonso-pacifer-1.webp";
+import afonsoPacifer2 from "../assets/images/width-1000/afonso-pacifer-2.webp";
+import afonsoPacifer3 from "../assets/images/width-1000/afonso-pacifer-3.webp";
 
 const imagens = [
 	{
