@@ -1,4 +1,5 @@
 # Logs
+_wip/
 logs
 *.log
 npm-debug.log*
