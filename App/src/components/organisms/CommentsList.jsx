@@ -1,3 +1,5 @@
+import RemoveIcon from "../atoms/icons/RemoveIcon";
+
 function CommentsList({ listaComentarios, removerComentario }) {
 	const estaEmDesenvolvimento = (import.meta.env.VITE_ENVIRONMENT === "development");
 
@@ -15,6 +17,7 @@ function CommentsList({ listaComentarios, removerComentario }) {
 								aria-label={`Remover comentário: ${comentario}`}
 								className="comments-list__remove-button"
 								onClick={() => removerComentario(index)}>
+								<RemoveIcon />
 								Remover comentário
 							</button>
 						)}

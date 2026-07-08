@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TextAreaField from "../atoms/TextAreaField";
+import AddIcon from "../atoms/icons/AddIcon";
 
 function CommentForm({ adicionarComentario }) {
 
@@ -35,6 +36,7 @@ function CommentForm({ adicionarComentario }) {
 			/>
 
 			<button className="comment-form__button" type="submit">
+				<AddIcon />
 				Adicionar comentário
 			</button>
 		</form>
