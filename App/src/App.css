@@ -175,3 +175,108 @@
   background-color: var(--color-surface-danger);
   border-color: var(--color-border-danger-hover);
 }
+
+/* =========================
+   7. Bloco: images-view
+========================= */
+
+.images-view {
+  max-width: var(--content-max-width);
+  margin: var(--space-40) auto;
+}
+
+/* =========================
+   8. Bloco: images-view intro
+========================= */
+
+.images-view__intro {
+  padding: var(--space-36);
+  background-color: var(--color-surface-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.images-view__title {
+  margin: var(--space-0) var(--space-0) var(--space-20);
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-base);
+  color: var(--color-text-primary);
+}
+
+.images-view__subtitle {
+  margin: var(--space-0) var(--space-0) var(--space-16);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-label);
+}
+
+.images-view__text {
+  margin: var(--space-0);
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+}
+
+/* =========================
+   9. Bloco: presentations
+========================= */
+
+.presentations {
+  margin-top: var(--space-40);
+}
+
+.presentations__title {
+  margin: var(--space-0) var(--space-0) var(--space-20);
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+}
+
+.presentations__list {
+  margin: var(--space-0);
+  padding: var(--space-0);
+  list-style: none;
+}
+
+.presentations__item {
+  margin-bottom: var(--space-28);
+}
+
+/* =========================
+   10. Bloco: presentation-card
+========================= */
+
+.presentation-card {
+  overflow: hidden;
+  background-color: var(--color-surface-primary);
+  border: var(--border-width-sm) solid var(--color-border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.presentation-card__image {
+  display: block;
+  width: 100%;
+}
+
+.presentation-card__content {
+  padding: var(--space-20);
+}
+
+.presentation-card__title {
+  margin: var(--space-0) var(--space-0) var(--space-8);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.presentation-card__subtitle {
+  margin: var(--space-0) var(--space-0) var(--space-14);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-label);
+}
+
+.presentation-card__text {
+  margin: var(--space-0);
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+}
