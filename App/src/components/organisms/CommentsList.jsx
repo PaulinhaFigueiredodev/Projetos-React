@@ -1,6 +1,6 @@
 import RemoveIcon from "../atoms/icons/RemoveIcon";
 
-function CommentsList({ listaComentarios, removerComentario }) {
+export default function CommentsList({ listaComentarios, removerComentario }) {
 	const estaEmDesenvolvimento = (import.meta.env.VITE_ENVIRONMENT === "development");
 
 	return (
@@ -8,15 +8,16 @@ function CommentsList({ listaComentarios, removerComentario }) {
 			<h2 className="comments-list__title">Comentários adicionados</h2>
 
 			<ul className="comments-list__items">
-				{listaComentarios.map((comentario, index) => (
-					<li className="comments-list__item" key={index}>
-						<p>{comentario}</p>
+				{listaComentarios.map((comentario) => (
+					<li className="comments-list__item" key={comentario.id}>
+						<p>{comentario.comment}</p>
 
 						{estaEmDesenvolvimento && (
 							<button
-								aria-label={`Remover comentário: ${comentario}`}
+								aria-label={`Remover comentário: ${comentario.comment}`}
 								className="comments-list__remove-button"
-								onClick={() => removerComentario(index)}>
+								onClick={() => removerComentario(comentario.id)}
+							>
 								<RemoveIcon />
 								Remover comentário
 							</button>
@@ -27,5 +28,3 @@ function CommentsList({ listaComentarios, removerComentario }) {
 		</section>
 	);
 }
-
-export default CommentsList;

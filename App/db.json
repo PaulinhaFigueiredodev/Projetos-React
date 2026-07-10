@@ -1,33 +1,13 @@
 {
   "comments": [
     {
-      "id": "comment-001",
-      "comment": "Estudar Front-End com calma ajuda a entender melhor cada parte da interface.",
-      "user": "user-123"
-    },
-    {
-      "id": "comment-002",
-      "comment": "React organiza a tela em componentes reutilizáveis.",
-      "user": "user-456"
-    },
-    {
-      "id": "comment-003",
-      "comment": "Vite ajuda o projeto a rodar no desenvolvimento e ser preparado para produção.",
-      "user": "user-789"
-    },
-    {
       "id": "comment-004",
       "comment": "Acessibilidade também faz parte da construção de uma boa interface.",
       "user": "user-321"
     },
     {
-      "id": "comment-005",
-      "comment": "Developer Experience melhora o dia a dia de quem desenvolve.",
-      "user": "user-654"
-    },
-    {
-      "id": "qr3xFjq0IsE",
-      "comment": "Aqui um teste",
+      "id": "aujrO_V0E0w",
+      "comment": "Developer Experience melhora o dia a dia de quem desenvolve 123",
       "user": "user-local"
     }
   ],
