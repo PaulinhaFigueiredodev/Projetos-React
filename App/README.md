@@ -1,75 +1,85 @@
-# Desafio — Tela de Comentários
+# Front-end, comunidade e comentários
 
-Projeto desenvolvido com React e Vite para praticar componentes, estado, eventos, validação simples, renderização de lista, CSS e acessibilidade.
+Aplicação React criada como projeto de portfólio. Reúne uma galeria responsiva sobre Front-end e uma área de comentários com CRUD completo consumindo uma API local.
 
 ## Funcionalidades
 
-- Campo para digitar um comentário.
-- Botão para adicionar comentário.
-- Validação para impedir comentário vazio.
-- Exibição dos comentários adicionados em lista.
-- Mensagem de erro clara.
-- Estilização com CSS e padrão BEM.
+- Navegação com React Router e página 404.
+- Galeria semântica com imagens responsivas.
+- Consulta, criação, edição e exclusão de comentários.
+- Confirmação antes da exclusão.
+- Estados de carregamento, vazio, sucesso e erro.
+- Nova tentativa quando o carregamento falha.
+- Interface responsiva e feedback acessível.
+- Testes do formulário e da lista.
 
-## Tecnologias usadas
+## Tecnologias
 
-- React
-- Vite
-- JavaScript
-- HTML
-- CSS
+React 19, React Router, Vite, JavaScript, CSS com BEM e custom properties, JSON Server, Vitest e React Testing Library.
 
-## Estrutura de pastas
+## Arquitetura
 
 ```text
-desafio-1/
-├── public/
-├── src/
-│   ├── App.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.jsx
-├── index.html
-├── package.json
-├── vite.config.js
-└── README.md
+src/
+├── assets/                  # Imagens em diferentes resoluções
+├── components/
+│   ├── atoms/               # Campo, feedback e ícones
+│   ├── molecules/           # Item editável de comentário
+│   └── organisms/           # Header, formulário e lista
+├── services/                # Comunicação com a API
+├── test/                    # Configuração dos testes
+├── views/                   # Páginas da aplicação
+├── App.jsx                  # Rotas
+├── App.css                  # Componentes e responsividade
+└── index.css                # Tokens e estilos globais
 ```
 
-## Estrutura do projeto
+A view coordena os estados da página e `commentsService.js` concentra os detalhes HTTP. Os componentes recebem dados e callbacks por propriedades, mantendo o fluxo de dados explícito.
 
-- `main.jsx`: entrada da aplicação React.
-- `App.jsx`: componente principal da tela de comentários.
-- `App.css`: estilos da tela usando padrão BEM.
-- `index.css`: estilos globais da aplicação.
-- `index.html`: arquivo HTML principal usado pelo Vite.
+## Como executar
 
-## Como rodar o projeto
-
-Instale as dependências:
+Requisitos: Node.js 20 ou superior e npm.
 
 ```bash
 npm install
+cp .env.example .env
 ```
 
-Inicie o servidor de desenvolvimento:
+Inicie a API e a interface juntas:
 
 ```bash
 npm run dev
 ```
 
-Depois, abra no navegador o endereço mostrado no terminal.
+A interface estará em `http://localhost:8080` e a API em `http://localhost:3000`.
 
-## Acessibilidade
+Se precisar executar somente a API ou somente a interface, use `npm run dev:api` ou `npm run dev:web`.
 
-O projeto inclui algumas boas práticas de acessibilidade:
+## Qualidade
 
-- Uso de `label` associado ao `textarea`.
-- Botão com texto claro.
-- Mensagem de erro compreensível.
-- Uso de `aria-invalid` no campo quando existe erro.
-- Uso de `aria-describedby` para ligar o erro ao campo.
-- Estrutura semântica com `main`, `section`, `h1` e `h2`.
-- Foco visível no campo de texto e no botão.
-- Documento com idioma definido como `pt-BR`.
+```bash
+npm run lint
+npm test
+npm run build
+```
 
-O projeto também foi testado com VoiceOver.
+Para executar testes em modo interativo, use `npm run test:watch`.
+
+## Acessibilidade e performance
+
+- Estrutura semântica e títulos hierárquicos.
+- Link para pular ao conteúdo.
+- Labels associados aos campos.
+- Erros ligados ao campo com `aria-describedby` e `aria-invalid`.
+- Feedbacks anunciados por regiões vivas.
+- Foco visível e áreas de toque adequadas.
+- Imagens com `srcSet`, `sizes`, dimensões e lazy loading.
+- Teste manual inicial com VoiceOver.
+
+## Decisões
+
+- JSON Server mantém o projeto executável sem back-end externo.
+- O formulário só é limpo após confirmação da API.
+- Cada operação possui feedback e estado de processamento.
+- Tokens CSS concentram cores, espaçamentos, tipografia, raios e sombras.
+- Atomic Design é aplicado de forma pragmática, extraindo componentes com responsabilidade clara.

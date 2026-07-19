@@ -1,106 +1,143 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import FeedbackMessage from "../components/atoms/FeedbackMessage";
 import CommentForm from "../components/organisms/CommentForm";
 import CommentsList from "../components/organisms/CommentsList";
+import {
+  createComment,
+  deleteComment,
+  getComments,
+  updateComment,
+} from "../services/commentsService";
 
 export default function CommentsView() {
-	const [listaComentarios, setListaComentarios] = useState([]);
-	const [carregandoComentarios, setCarregandoComentarios] = useState(false);
-	const [erroComentarios, setErroComentarios] = useState(null);
+  const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
+  const [actionError, setActionError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [removingId, setRemovingId] = useState(null);
 
-	async function carregarComentarios() {
-		setCarregandoComentarios(true);
-		setErroComentarios(null);
+  useEffect(() => {
+    const controller = new AbortController();
 
-		try {
-			const resposta = await fetch("http://localhost:3000/comments");
+    getComments({ signal: controller.signal })
+      .then(setComments)
+      .catch((error) => {
+        if (error.name !== "AbortError") {
+          setLoadError("Não foi possível carregar os comentários.");
+        }
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) setIsLoading(false);
+      });
 
-			const dados = await resposta.json();
+    return () => controller.abort();
+  }, []);
 
-			setListaComentarios(dados);
-		} catch (erro) {
-			setErroComentarios("Não foi possível carregar os comentários.");
-		} finally {
-			setCarregandoComentarios(false);
-		}
-	}
+  function clearFeedback() {
+    setActionError("");
+    setSuccessMessage("");
+  }
 
-	useEffect(() => {
-		carregarComentarios();
-	}, []);
+  async function addComment(text) {
+    clearFeedback();
+    const newComment = {
+      id: crypto.randomUUID(),
+      comment: text,
+      user: "user-local",
+    };
 
-	async function adicionarComentario(textoComentario) {
-		setErroComentarios(null);
+    try {
+      const createdComment = await createComment(newComment);
+      setComments((currentComments) => [...currentComments, createdComment]);
+      setSuccessMessage("Comentário adicionado com sucesso.");
+      return true;
+    } catch {
+      setActionError("Não foi possível adicionar seu comentário. Tente novamente.");
+      return false;
+    }
+  }
 
-		const url = "http://localhost:3000/comments";
+  async function editComment(id, text) {
+    clearFeedback();
 
-		const novoComentario = {
-			id: crypto.randomUUID(),
-			comment: textoComentario,
-			user: "user-local"
-		};
+    try {
+      const updatedComment = await updateComment(id, text);
+      setComments((currentComments) =>
+        currentComments.map((comment) =>
+          comment.id === id ? updatedComment : comment,
+        ),
+      );
+      setSuccessMessage("Comentário atualizado com sucesso.");
+      return true;
+    } catch {
+      setActionError("Não foi possível atualizar o comentário. Tente novamente.");
+      return false;
+    }
+  }
 
-		try {
-			const response = await fetch(url, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(novoComentario)
-			});
+  async function removeComment(comment) {
+    const confirmed = window.confirm(`Remover o comentário “${comment.comment}”?`);
+    if (!confirmed) return;
 
-			if (!response.ok) {
-				throw new Error("Não foi possível adicionar seu comentário.");
-			}
+    clearFeedback();
+    setRemovingId(comment.id);
 
-			const comentarioCriado = await response.json();
+    try {
+      await deleteComment(comment.id);
+      setComments((currentComments) =>
+        currentComments.filter((currentComment) => currentComment.id !== comment.id),
+      );
+      setSuccessMessage("Comentário removido com sucesso.");
+    } catch {
+      setActionError("Não foi possível remover o comentário. Tente novamente.");
+    } finally {
+      setRemovingId(null);
+    }
+  }
 
-			setListaComentarios((listaAtual) => [
-				...listaAtual,
-				comentarioCriado
-			]);
-		} catch (error) {
-			setErroComentarios("Não foi possível adicionar seu comentário.");
-		}
-	}
+  async function retryLoad() {
+    setIsLoading(true);
+    setLoadError("");
 
-	async function removerComentario(idParaRemover) {
-		setErroComentarios(null);
+    try {
+      setComments(await getComments());
+    } catch {
+      setLoadError("Não foi possível carregar os comentários.");
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
-		const url = `http://localhost:3000/comments/${idParaRemover}`;
+  return (
+    <main className="comments-view" id="main-content">
+      <h1 className="comments-view__title">Comentários</h1>
+      <p className="comments-view__description">
+        Compartilhe uma reflexão sobre Front-end, comunidade ou experiência de desenvolvimento.
+      </p>
 
-		try {
-			const response = await fetch(url, {
-				method: "DELETE"
-			});
+      {actionError && <FeedbackMessage type="error">{actionError}</FeedbackMessage>}
+      {successMessage && <FeedbackMessage type="success">{successMessage}</FeedbackMessage>}
 
-			if (!response.ok) {
-				throw new Error("Não foi possível remover o comentário.");
-			}
+      <CommentForm adicionarComentario={addComment} />
 
-			setListaComentarios((listaAtual) =>
-				listaAtual.filter((comentarioAtual) => {
-					return comentarioAtual.id !== idParaRemover;
-				})
-			);
-		} catch (error) {
-			setErroComentarios("Não foi possível remover o comentário.");
-		}
-	}
-
-	return (
-		<main className="comments-view">
-			<h1 className="comments-view__title">Comentários</h1>
-
-			{carregandoComentarios && <p>Carregando comentários...</p>}
-
-			{erroComentarios && <p>{erroComentarios}</p>}
-
-			<CommentForm adicionarComentario={adicionarComentario} />
-
-			<CommentsList
-				listaComentarios={listaComentarios}
-				removerComentario={removerComentario}
-			/>
-		</main>
-	);
+      {isLoading ? (
+        <p className="comments-view__loading" role="status">Carregando comentários...</p>
+      ) : loadError ? (
+        <div className="comments-view__load-error">
+          <FeedbackMessage type="error">{loadError}</FeedbackMessage>
+          <button className="button button--secondary" type="button" onClick={retryLoad}>
+            Tentar novamente
+          </button>
+        </div>
+      ) : (
+        <CommentsList
+          listaComentarios={comments}
+          comentarioSendoRemovido={removingId}
+          editarComentario={editComment}
+          removerComentario={removeComment}
+        />
+      )}
+    </main>
+  );
 }

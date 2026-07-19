@@ -1,30 +1,25 @@
-import RemoveIcon from "../atoms/icons/RemoveIcon";
+import CommentItem from "../molecules/CommentItem";
 
-export default function CommentsList({ listaComentarios, removerComentario }) {
-	const estaEmDesenvolvimento = (import.meta.env.VITE_ENVIRONMENT === "development");
-
+export default function CommentsList({ listaComentarios, comentarioSendoRemovido, editarComentario, removerComentario }) {
 	return (
-		<section className="comments-list">
-			<h2 className="comments-list__title">Comentários adicionados</h2>
+		<section className="comments-list" aria-labelledby="comments-list-title">
+			<h2 className="comments-list__title" id="comments-list-title">Comentários adicionados</h2>
 
-			<ul className="comments-list__items">
-				{listaComentarios.map((comentario) => (
-					<li className="comments-list__item" key={comentario.id}>
-						<p>{comentario.comment}</p>
-
-						{estaEmDesenvolvimento && (
-							<button
-								aria-label={`Remover comentário: ${comentario.comment}`}
-								className="comments-list__remove-button"
-								onClick={() => removerComentario(comentario.id)}
-							>
-								<RemoveIcon />
-								Remover comentário
-							</button>
-						)}
-					</li>
-				))}
-			</ul>
+			{listaComentarios.length === 0 ? (
+				<p className="comments-list__empty">Nenhum comentário foi adicionado ainda.</p>
+			) : (
+				<ul className="comments-list__items">
+					{listaComentarios.map((comentario) => (
+						<CommentItem
+							key={comentario.id}
+							comment={comentario}
+							isRemoving={comentarioSendoRemovido === comentario.id}
+							onEdit={editarComentario}
+							onRemove={removerComentario}
+						/>
+					))}
+				</ul>
+			)}
 		</section>
 	);
 }

@@ -1,11 +1,19 @@
 import afonsoPacifer1 from "../assets/images/width-1000/afonso-pacifer-1.webp";
 import afonsoPacifer2 from "../assets/images/width-1000/afonso-pacifer-2.webp";
 import afonsoPacifer3 from "../assets/images/width-1000/afonso-pacifer-3.webp";
+import afonsoPacifer1Medium from "../assets/images/width-700/afonso-pacifer-1.webp";
+import afonsoPacifer2Medium from "../assets/images/width-700/afonso-pacifer-2.webp";
+import afonsoPacifer3Medium from "../assets/images/width-700/afonso-pacifer-3.webp";
+import afonsoPacifer1Small from "../assets/images/width-600/afonso-pacifer-1.webp";
+import afonsoPacifer2Small from "../assets/images/width-600/afonso-pacifer-2.webp";
+import afonsoPacifer3Small from "../assets/images/width-600/afonso-pacifer-3.webp";
 
 const presentations = [
   {
     id: 1,
     image: afonsoPacifer1,
+    imageMedium: afonsoPacifer1Medium,
+    imageSmall: afonsoPacifer1Small,
     alt: "Palestrante em um palco ao lado de uma tela com o texto Developer Experience.",
     title: "Developer Experience",
     subtitle: "Experiência de desenvolvimento no Front-End",
@@ -15,6 +23,8 @@ const presentations = [
   {
     id: 2,
     image: afonsoPacifer2,
+    imageMedium: afonsoPacifer2Medium,
+    imageSmall: afonsoPacifer2Small,
     alt: "Palestrante em evento de tecnologia falando ao microfone ao lado de uma projeção com o texto Pausa para água.",
     title: "Comunidade e ensino",
     subtitle: "Compartilhamento de conhecimento em tecnologia",
@@ -24,6 +34,8 @@ const presentations = [
   {
     id: 3,
     image: afonsoPacifer3,
+    imageMedium: afonsoPacifer3Medium,
+    imageSmall: afonsoPacifer3Small,
     alt: "Palestrante falando ao microfone em uma apresentação técnica, com uma tela exibindo código ao fundo.",
     title: "CSS, Open Source e interfaces",
     subtitle: "Construção de interfaces mais consistentes",
@@ -34,7 +46,7 @@ const presentations = [
 
 function ImagesView() {
   return (
-    <main className="images-view">
+    <main className="images-view" id="main-content">
       <section className="images-view__intro">
         <h1 className="images-view__title">
           Afonso Pacifer: Front-End, Comunidade e Developer Experience
@@ -63,7 +75,12 @@ function ImagesView() {
                 <img
                   className="presentation-card__image"
                   src={presentation.image}
+                  srcSet={`${presentation.imageSmall} 600w, ${presentation.imageMedium} 700w, ${presentation.image} 1000w`}
+                  sizes="(max-width: 700px) 100vw, 700px"
                   alt={presentation.alt}
+                  loading="lazy"
+                  width="1000"
+                  height="667"
                 />
 
                 <div className="presentation-card__content">

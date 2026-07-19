@@ -3,11 +3,11 @@ import TextAreaField from "../atoms/TextAreaField";
 import AddIcon from "../atoms/icons/AddIcon";
 
 function CommentForm({ adicionarComentario }) {
-
 	const [textoComentario, setTextoComentario] = useState("");
 	const [mensagemErro, setMensagemErro] = useState("");
+	const [enviando, setEnviando] = useState(false);
 
-	function enviarFormulario(event) {
+	async function enviarFormulario(event) {
 		event.preventDefault();
 
 		const textoLimpo = textoComentario.trim();
@@ -17,9 +17,14 @@ function CommentForm({ adicionarComentario }) {
 			return;
 		}
 
-		adicionarComentario(textoLimpo);
-		setTextoComentario("");
-		setMensagemErro("");
+		setEnviando(true);
+		const sucesso = await adicionarComentario(textoLimpo);
+		setEnviando(false);
+
+		if (sucesso) {
+			setTextoComentario("");
+			setMensagemErro("");
+		}
 	}
 
 	return (
@@ -35,9 +40,9 @@ function CommentForm({ adicionarComentario }) {
 				errorMessage={mensagemErro}
 			/>
 
-			<button className="comment-form__button" type="submit">
+			<button className="comment-form__button" type="submit" disabled={enviando}>
 				<AddIcon />
-				Adicionar comentário
+				{enviando ? "Adicionando..." : "Adicionar comentário"}
 			</button>
 		</form>
 	)
