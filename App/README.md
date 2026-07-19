@@ -83,3 +83,9 @@ Para executar testes em modo interativo, use `npm run test:watch`.
 - Cada operação possui feedback e estado de processamento.
 - Tokens CSS concentram cores, espaçamentos, tipografia, raios e sombras.
 - Atomic Design é aplicado de forma pragmática, extraindo componentes com responsabilidade clara.
+
+## Licença
+
+O código-fonte e a documentação estão licenciados sob a [Apache License 2.0](../LICENSE). Copyright 2026 Paula Figueiredo. Consulte também o arquivo [NOTICE](../NOTICE).
+
+As fotografias utilizadas na galeria possuem autorização de uso, mas não estão cobertas pela licença do código. Consulte o [aviso de direitos das imagens](./src/assets/images/README.md).

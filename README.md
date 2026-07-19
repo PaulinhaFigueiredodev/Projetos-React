@@ -1,121 +1,145 @@
 # Projetos React
 
-Repositório criado para organizar desafios e estudos práticos com React, Vite, JavaScript, HTML, CSS e acessibilidade.
+Portfólio de estudos práticos em desenvolvimento Front-end com React. O repositório apresenta aplicações construídas de forma incremental, com atenção a componentização, integração com APIs, acessibilidade, responsividade e qualidade de código.
 
-O objetivo é praticar front-end moderno por meio de pequenos projetos evolutivos, com foco em clareza, componentização, organização de código e boas práticas.
+## Projeto disponível
 
-## Projetos
+### Front-end, comunidade e comentários
 
-### Funcionalidades
+Aplicação React com uma galeria responsiva sobre um Profissional de Front-end e uma área de comentários integrada a uma API local.
 
-Aplicação criada com React e Vite.
+[Ver documentação completa da aplicação](./App/README.md)
 
-Funcionalidades principais:
+#### Funcionalidades
 
-- Adicionar comentários.
-- Validar comentário vazio.
-- Exibir comentários em lista.
-- Remover comentários em ambiente de desenvolvimento.
-- Componentizar partes da interface.
-- Usar variável de ambiente.
-- Aplicar acessibilidade.
-- Usar CSS organizado com padrão BEM.
-- Evoluir o projeto com rotas reais usando React Router.
+- Navegação entre páginas com React Router.
+- Galeria com imagens responsivas e carregamento otimizado.
+- Consulta, criação, edição e exclusão de comentários.
+- Validação de formulário.
+- Confirmação antes da exclusão.
+- Estados de carregamento, vazio, sucesso e erro.
+- Nova tentativa quando a API falha.
+- Página personalizada para rotas não encontradas.
+- Layout adaptado para desktop e dispositivos móveis.
+- Feedback acessível para tecnologias assistivas.
 
-Caminho do projeto:
+#### Conhecimentos demonstrados
 
-```text
-App/
-```
+- Componentes funcionais, propriedades, estado e efeitos em React.
+- Formulários controlados e operações assíncronas.
+- Integração HTTP com `GET`, `POST`, `PATCH` e `DELETE`.
+- Separação entre interface, estado da página e camada de serviços.
+- Atomic Design aplicado de forma pragmática.
+- CSS com BEM, custom properties e media queries.
+- HTML semântico e fundamentos de acessibilidade.
+- Testes de comportamento com React Testing Library.
+- Fluxo de trabalho com Git e validação automatizada.
 
-## Tecnologias usadas
+## Tecnologias
 
-- React
+- React 19
+- React Router
 - Vite
 - JavaScript
-- HTML
-- CSS
-- React Router
-- Git e GitHub
+- HTML e CSS
+- JSON Server
+- Vitest
+- React Testing Library
+- ESLint
 
 ## Estrutura do repositório
 
 ```text
 Projetos-React/
-├── App/
-├── CONTRIBUTING.md
-├── LICENSE
-└── README.md
+├── App/                    # Aplicação React e sua documentação
+├── CONTRIBUTING.md         # Convenções de contribuição e Git
+├── LICENSE                 # Licença do repositório
+├── NOTICE                  # Titularidade e atribuições
+└── README.md               # Apresentação principal
 ```
 
-## Como rodar um projeto
+Dentro da aplicação:
 
-Entre na pasta do desafio:
-
-```bash
-cd App
+```text
+App/src/
+├── assets/                 # Imagens em diferentes resoluções
+├── components/
+│   ├── atoms/              # Elementos básicos da interface
+│   ├── molecules/          # Composições pequenas
+│   └── organisms/          # Blocos completos da interface
+├── services/               # Comunicação com a API
+├── test/                   # Configuração dos testes
+├── views/                  # Páginas da aplicação
+├── App.jsx                 # Definição das rotas
+├── App.css                 # Componentes e responsividade
+└── index.css               # Tokens e estilos globais
 ```
 
-Instale as dependências:
+## Como executar
+
+Requisitos: Node.js 20 ou superior e npm.
 
 ```bash
+git clone <URL_DO_REPOSITORIO>
+cd Projetos-React/App
 npm install
-```
-
-Rode o projeto em desenvolvimento:
-
-```bash
+cp .env.example .env
 npm run dev
 ```
 
-Depois, abra no navegador o endereço mostrado no terminal.
+O comando `npm run dev` inicia os dois serviços:
 
-## Scripts principais
+- Front-end: `http://localhost:8080`
+- API local: `http://localhost:3000`
 
-Dentro de cada desafio, podem existir scripts como:
-
-```bash
-npm run dev
-```
-
-Roda o projeto em ambiente de desenvolvimento.
+Para iniciar os processos separadamente:
 
 ```bash
-npm run build
+npm run dev:web
+npm run dev:api
 ```
 
-Gera a versão de produção.
+## Verificações de qualidade
 
-```bash
-npm run start
-```
-
-Executa a prévia da versão de produção.
+Execute os comandos dentro de `App/`:
 
 ```bash
 npm run lint
+npm test
+npm run build
 ```
 
-Verifica possíveis problemas no código.
+| Comando | Finalidade |
+| --- | --- |
+| `npm run lint` | Verifica problemas de qualidade e uso dos hooks. |
+| `npm test` | Executa os testes automatizados uma vez. |
+| `npm run test:watch` | Mantém os testes em execução durante o desenvolvimento. |
+| `npm run build` | Gera e valida a versão de produção. |
+| `npm run preview` | Exibe localmente o build de produção. |
 
-## Acessibilidade
+## Acessibilidade e performance
 
-Os projetos devem considerar boas práticas de acessibilidade, como:
+O projeto inclui:
 
-- Uso de HTML semântico.
-- Botões com texto claro.
-- Links compreensíveis.
-- Imagens com `alt` adequado.
-- Foco visível.
-- Navegação por teclado.
-- Suporte a leitores de tela quando aplicável.
+- HTML semântico e hierarquia de títulos.
+- Navegação por teclado e foco visível.
+- Link para pular diretamente ao conteúdo.
+- Labels e mensagens de erro associadas aos campos.
+- Regiões vivas para feedback de ações assíncronas.
+- Textos alternativos descritivos.
+- Imagens com `srcSet`, `sizes`, dimensões e lazy loading.
+- Tokens CSS para manter consistência visual.
 
-## Padrões do projeto
+## Documentação e contribuição
 
-Os padrões de branches, commits, pull requests e fluxo de trabalho estão descritos em:
+- [Documentação da aplicação](./App/README.md)
+- [Guia de contribuição](./CONTRIBUTING.md)
+- [Licença](./LICENSE)
 
-[CONTRIBUTING.md](./CONTRIBUTING.md)
+## Licença
 
-## Status
+O código-fonte e a documentação deste projeto estão licenciados sob a [Apache License 2.0](./LICENSE).
 
-Repositório em evolução conforme novos desafios forem criados.
+Copyright 2026 Paula Figueiredo. Consulte também o arquivo [NOTICE](./NOTICE).
+
+As fotografias presentes em `App/src/assets/images/` são usadas com autorização e não estão cobertas pela Apache License 2.0. A presença desses arquivos no repositório não concede direito automático de reutilização por terceiros. Consulte o [aviso específico das imagens](./App/src/assets/images/README.md).

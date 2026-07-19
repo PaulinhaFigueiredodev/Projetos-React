@@ -2,6 +2,7 @@
   "name": "App",
   "private": true,
   "version": "0.0.0",
+  "license": "Apache-2.0",
   "type": "module",
   "scripts": {
     "dev": "concurrently --kill-others-on-fail --names API,WEB --prefix-colors magenta,cyan \"npm:dev:api\" \"npm:dev:web\"",
